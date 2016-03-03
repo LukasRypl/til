@@ -2,6 +2,17 @@
 
 Today I learned
 
+### Linux kernel module parameters - how to show current values
+
+```bash
+module='snd_hda_intel'
+
+# this should work nearly everywhere
+for i in /sys/module/${module}/parameters/* ; do echo "$i = $(cat $i)"; done
+# the following requires sysfsutils package
+systool -vm $module
+```
+
 ### Drop outgoing port unreachable ICMP messages
 
 ```bash
