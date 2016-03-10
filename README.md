@@ -2,6 +2,17 @@
 
 Today I learned
 
+### Using gdb to get full backtrace of all threads to file 
+
+Similar to 
+```bash
+pkill -3 java
+```
+```bash
+executableName='/usr/lib64/firefox/firefox'
+gdb "${executableName}" $(pidof "${executableName}") -batch -ex "thread apply all bt" &> stacktrace.txt 
+```
+
 ### Linux kernel module parameters - how to show current values
 
 ```bash
