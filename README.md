@@ -2,7 +2,30 @@
 
 Today I learned
 
-### Using gdb to get full backtrace of all threads to file 
+### Creating an empty large file
+
+dd is relatively slow because it does real IO (it varies based on block size parameter and disk speed, etc.)
+```
+time -p dd if=/dev/zero bs=1M count=1024 of=1Gfile-dd
+1024+0 records in
+1024+0 records out
+1073741824 bytes (1.1 GB) copied, 12.7845 s, 84.0 MB/s
+real 13.00
+user 0.00
+sys 0.73
+```
+
+falocate is super quick - it allocates uninitialized blocks which does not need real IO to all blocks.
+
+```
+time -p fallocate -l 1G 1Gfile-fallocate
+real 0.09
+user 0.00
+sys 0.00
+```
+
+
+### Using gdb to get full backtrace of all threads to a file 
 
 Similar to 
 ```bash
