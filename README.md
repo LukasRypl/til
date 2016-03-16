@@ -2,6 +2,14 @@
 
 Today I learned
 
+### Hardware information summary for Linux
+
+```
+wget --no-check-certificate https://github.com/smxi/inxi/blob/master/inxi
+./inxi -c0 -v5
+```
+
+
 ### Creating an empty large file
 
 dd is relatively slow because it does real IO (it varies based on block size parameter and disk speed, etc.)
