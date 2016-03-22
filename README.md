@@ -1,6 +1,20 @@
-# til
+# til - Today I learned
 
-Today I learned
+
+### Continuous monitoring of memory, cpu, temperature, disks, network and other stats with export to CSV ###
+
+https://github.com/dagwieers/dstat
+Written in python, mostly reads data from files in /proc or /sys. Easily extensible via plugins.  
+
+
+### Showing trace in bash ##
+
+```
+# + date function() file:line +
+PS4='+$(date "+%F %T") ${FUNCNAME[0]}() $BASH_SOURCE:${BASH_LINENO[0]} + '
+set -x
+```
+
 
 ### Hardware information summary for Linux
 
