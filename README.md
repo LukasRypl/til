@@ -1,5 +1,28 @@
 # til - Today I learned
 
+### Calling xrandr when external monitor is plugged and unplugged ###
+
+run ```udevadm monitor --environment```
+then unplug device, wait till output changes, then plug it in
+based on seen actions and variables, create an udev rule in /etc/udev/rules.d/XX-whatever.rules:
+```
+ACTION=="change", SUBSYSTEM=="drm", ENV{DISPLAY}=":0", ENV{XAUTHORITY}=" INSERT PATH TO YOUR X AUTHORITY FILE" RUN+="/etc/udev/external-monitor.sh"
+```
+
+and script reference in this rule:
+
+```
+#!/bin/bash
+TAG="$0"
+echo "Invoked ${0} --- $(env)" | logger -t "$TAG"
+sleep 3
+echo "invoking xrandr" | logger -t "$TAG"
+/usr/bin/xrandr --verbose --display :0 --output HDMI1 --auto --primary --output LVDS1 --auto --right-of HDMI1 2>&1 | logger -t "$TAG"
+echo "finished" | logger -t "$TAG"
+```
+
+Log messages will go to local syslog and most likely end up in /var/log/messages with tag equal to script filename.
+
 
 ### Continuous monitoring of memory, cpu, temperature, disks, network and other stats with export to CSV ###
 
