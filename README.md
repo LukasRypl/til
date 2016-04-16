@@ -1,5 +1,13 @@
 # til - Today I learned
 
+### Filtering USB communication in wireshark ###
+
+When there is a transfer from host to device, the SUBMIT "packet" contains the actual USB data transmitted. When there is a transfer from device to host (initiated by the host, as always), the COMPLETE "packet" contains the actual USB data transmitted.
+
+```!(usb.urb_type == URB_SUBMIT && usb.endpoint_number.direction == IN) && !(usb.urb_type == URB_COMPLETE && usb.endpoint_number.direction == OUT)```
+
+Thanks to http://superuser.com/questions/873896/wireshark-usb-traces-explanations
+
 ### Calling xrandr when external monitor is plugged and unplugged ###
 
 run ```udevadm monitor --environment```
