@@ -1,5 +1,11 @@
 # til - Today I learned
 
+### make - allow N jobs at once ###
+
+This will use all but one CPU:
+
+```make -j $(($(getconf _NPROCESSORS_ONLN) - 1))```
+
 ### Filtering USB communication in wireshark ###
 
 When there is a transfer from host to device, the SUBMIT "packet" contains the actual USB data transmitted. When there is a transfer from device to host (initiated by the host, as always), the COMPLETE "packet" contains the actual USB data transmitted.
