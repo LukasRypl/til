@@ -1,5 +1,12 @@
 # til - Today I learned
 
+### Not enough space on disk? Use ncdu and fdupes ###
+
+Command line tools:
+* ```ncdu``` ncurses disk usage - which directory occupies the biggest part of your disk
+* ```dupes``` find duplicated files
+
+
 ### make - allow N jobs at once ###
 
 This will use all but one CPU:
