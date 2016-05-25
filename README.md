@@ -2,6 +2,8 @@
 
 ### Not enough space on disk? Use ncdu and fdupes ###
 
+```find . -printf '%s\t%p\n' | sort -nr | less``` 
+
 Command line tools:
 * ```ncdu``` ncurses disk usage - which directory occupies the biggest part of your disk
 * ```dupes``` find duplicated files
