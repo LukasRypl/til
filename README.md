@@ -1,5 +1,14 @@
 # til - Today I learned
 
+### SNMP MIB - show schema as relation diagram ###
+
+```
+# dump as SVG
+smidump -u -f svg ./*.mib >schema.svg
+# SVG2pdf
+rsvg-convert -f pdf -o schema.pdf schema.svg
+```
+
 ### Not enough space on disk? Use ncdu and fdupes ###
 
 ```find . -printf '%s\t%p\n' | sort -nr | less``` 
