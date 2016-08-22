@@ -1,5 +1,12 @@
 # til - Today I learned
 
+### Measuring time in video
+
+Speed at 20% and shows OSD with time (hundreths of seconds)
+```
+mplayer2 --speed=0.2 --osdlevel=3 --osd-fractions=1 --fs yourfile.mp4
+```
+
 ### SNMP MIB - show schema as relation diagram ###
 
 ```
